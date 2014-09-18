@@ -1,0 +1,4 @@
+MAILTO=chris@smalldognet.com
+
+# weekly
+15 0 * * 0 root /code/nsw/bin/send_calendar.pl -d nsw

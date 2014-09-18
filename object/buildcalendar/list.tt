@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="span11" style="text-align: center;">
+<h1>Stove Build Calendar</h1>
+<div class="row">
+	<div class="span8 offset2" style="text-align: left;">[% s.format_text(hash.build_calender_header) %]</div>
+</div>
+[% lastmonth = 0 %]
+[% FOREACH w IN calendar.weeks %]
+	[% IF lastmonth != w.month %]
+		[% IF lastmonth %]</tbody></table>[% END %]
+		[% lastmonth = w.month %]
+	<h3>[% w.month_name %]</h3>
+	<table class="table">
+	<thead>
+		<tr>
+		[% FOREACH d IN [0,1,2,3,4,5,6] %]
+			<th>[% calendar.dow.${d}.l %]</th>
+		[% END %]
+		</tr>
+	</thead>
+	<tbody>
+	[% END %]
+	<tr>
+		[% FOREACH d IN [0,1,2,3,4,5,6] %]
+			[% IF w.days.${d}.defined %]
+			[% this_date = w.days.${d}.date %]
+			<td style="width: 14%; height: 100px; vertical-align: top;">
+			<div style="font-weight: bold; color: #555;">[% w.days.${d}.day %]</div>
+			[% ELSE %]
+			<td>&nbsp;
+			[% END %]
+			[% IF w.days.${d}.orderitem.size %]
+				[% FOREACH o IN w.days.${d}.orderitem %]
+				<div style="text-align: center; padding: 6px; border: 3px solid; border-color: [% o.color %];">
+				<p>Order ID</p><b style="font-size: 28px;">[% o.order_id %]</b>
+				</div><br>
+				[% END %]
+			[% END %]
+		</td>
+		[% END %]
+	</tr>
+[% END %]
+[% IF lastmonth %]</tbody></table>[% END %]
+	</div>
+</div>

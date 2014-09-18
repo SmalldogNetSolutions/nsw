@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>[% s.title %]</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="[% s.static_url %]/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="[% s.static_url %]/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="[% s.static_url %]/bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+[% s.js.head %]
+[% s.rd.head %]
+</head>
+<body [% s.r.body %]>
+<div class="container">
+	<div class="row" style="text-align: center;">
+		<img src="[% s.static_url %]/[% s.custom_obase %]_logo.png">
+	</div>
+	<div class="well" style="background-color: #fff;">
+[% IF s.i_funit.name %]
+		<h2>[% s.i_funit.name %]</h2>
+[% END %]
+[% IF s.actions.size %]
+		<ul class="nav nav-tabs">
+	[% FOREACH l IN s.actions %]
+			<li[% IF l.active %] class="active"[% END %]><a href="[% l.url %]">[% l.title %]</a></li>
+	[% END %]
+		</ul>
+[% END %]
+[% s.r.content %]
+	</div>
+</div>
+<script src="[% s.static_url %]/js/jquery.js"></script>
+<script src="[% s.static_url %]/bootstrap/js/google-code-prettify/prettify.js"></script>
+<script src="[% s.static_url %]/bootstrap/js/bootstrap-collapse.js"></script>
+<script src="[% s.static_url %]/bootstrap/js/bootstrap-carousel.js"></script>
+</body>
+</html>
