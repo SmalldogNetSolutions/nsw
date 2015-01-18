@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="span11" style="text-align: center;">
+<h1>Stove Build List</h1>
+<div class="row">
+	<div class="span8 offset2" style="text-align: left;">[% s.format_text(hash.build_calender_header) %]</div>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Plain Iron</th>
+			<th>Porcelain</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+[% FOREACH o IN blue %]
+				<div style="text-align: center; padding: 6px; border: 3px solid; border-color: [% o.color %];">
+				<p>Order ID</p><b style="font-size: 28px;">[% o.order_id %]</b>
+				</div><br>
+[% END %]
+			</td>
+			<td>
+[% FOREACH o IN red %]
+				<div style="text-align: center; padding: 6px; border: 3px solid; border-color: [% o.color %];">
+				<p>Order ID</p><b style="font-size: 28px;">[% o.order_id %]</b>
+				</div><br>
+[% END %]
+			</td>
+		</tr>
+	</tbody>
+</table>
+	</div>
+</div>

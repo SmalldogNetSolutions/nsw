@@ -22,6 +22,28 @@ sub main {
 		return;
 	}
 
+	# we just need to make 2 lists
+	my @red;
+	my @blue;
+	foreach my $ref (@list) {
+		if ($ref->{color} eq 'red') {
+			push @red, { $ref };
+		} elsif ($ref->{color} eq 'blue') {
+			push @blue, { $ref };
+		}
+	}
+
+	my %hash = $s->db_q("
+		SELECT code, content
+		FROM sitecontent
+		WHERE code='build_calender_header'
+		",'keyval');
+
+	$s->tt('buildcalendar/list_list.tt', { s => $s,
+		red => \@red, blue => \@blue });
+	
+	return;
+
 	my $start_date = $list[0]{stat_date};
 	my $end_date = $list[$entries]{stat_date};
 	my $months = $s->db_q("
@@ -52,12 +74,6 @@ sub main {
 			}
 		}
 	}
-
-	my %hash = $s->db_q("
-		SELECT code, content
-		FROM sitecontent
-		WHERE code='build_calender_header'
-		",'keyval');
 
 	$s->tt('buildcalendar/list.tt', { s => $s,
 		hash => \%hash,
