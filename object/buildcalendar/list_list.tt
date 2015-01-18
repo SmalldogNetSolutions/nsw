@@ -4,6 +4,8 @@
 <div class="row">
 	<div class="span8 offset2" style="text-align: left;">[% s.format_text(hash.build_calender_header) %]</div>
 </div>
+<div class="row">
+	<div class="span6 offset4">
 <table class="table">
 	<thead>
 		<tr>
@@ -30,5 +32,7 @@
 		</tr>
 	</tbody>
 </table>
+	</div>
+</div>
 	</div>
 </div>
