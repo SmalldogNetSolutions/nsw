@@ -18,14 +18,14 @@
 			<td>
 [% FOREACH o IN blue %]
 				<div style="text-align: center; padding: 6px; border: 3px solid; border-color: [% o.color %];">
-				<p>Order ID</p><b style="font-size: 28px;">[% o.order_id %]</b>[% IF o.order_date %]<br>Ordered [% s.format_date(o.order_date) %][% ELSE %]&nbsp;[% END %]
+				<p>Order ID</p><b style="font-size: 28px;">[% o.order_id %]</b>[% IF o.order_date %]<br>Ordered [% s.format_date(o.order_date) %][% ELSE %]<br>&nbsp;[% END %]
 				</div><br>
 [% END %]
 			</td>
 			<td>
 [% FOREACH o IN red %]
 				<div style="text-align: center; padding: 6px; border: 3px solid; border-color: [% o.color %];">
-				<p>Order ID</p><b style="font-size: 28px;">[% o.order_id %]</b>[% IF o.order_date %]<br>Ordered [% s.format_date(o.order_date) %][% ELSE %]&nbsp;[% END %]
+				<p>Order ID</p><b style="font-size: 28px;">[% o.order_id %]</b>[% IF o.order_date %]<br>Ordered [% s.format_date(o.order_date) %][% ELSE %]<br>&nbsp;[% END %]
 				</div><br>
 [% END %]
 			</td>
