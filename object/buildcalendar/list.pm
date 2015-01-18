@@ -27,9 +27,9 @@ sub main {
 	my @blue;
 	foreach my $ref (@list) {
 		if ($ref->{color} eq 'red') {
-			push @red, { $ref };
+			push @red, $ref;
 		} elsif ($ref->{color} eq 'blue') {
-			push @blue, { $ref };
+			push @blue, $ref;
 		}
 	}
 
@@ -40,6 +40,7 @@ sub main {
 		",'keyval');
 
 	$s->tt('buildcalendar/list_list.tt', { s => $s,
+		hash => \%hash, 		
 		red => \@red, blue => \@blue });
 	
 	return;
