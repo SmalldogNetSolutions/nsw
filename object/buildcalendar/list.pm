@@ -7,7 +7,7 @@ sub main {
 	my $s = shift;
 
 	my @list = $s->db_q("
-		SELECT co.stat_date, o.order_id, c.name, date(o.order_ts) as order_date,
+		SELECT co.stat_date, o.order_id, c.name, date(o.order_ts) as order_date_tmp,
 			CASE WHEN c.name='Porcelain' THEN 'red' ELSE 'blue' END as color
 		FROM calendar_orderitems co
 			JOIN calendars c ON co.cal_id=c.cal_id
