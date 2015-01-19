@@ -13,7 +13,7 @@ sub main {
 			JOIN calendars c ON co.cal_id=c.cal_id
 			JOIN order_items oi ON co.order_item_id=oi.order_item_id
 			JOIN orders o ON oi.order_id=o.order_id
-		ORDER BY color, stat_date, order_date, order_id
+		ORDER BY color, stat_date, order_id
 		",'arrayhash');
 
 	my $entries = $#list;
